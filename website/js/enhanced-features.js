@@ -2,39 +2,6 @@
 (function() {
     'use strict';
     
-    // ===== LOADING SCREEN =====
-    function initLoadingScreen() {
-        const loader = document.createElement('div');
-        loader.className = 'loading-screen';
-        loader.innerHTML = `
-            <div class="loader-content">
-                <div class="loader-logo">SG</div>
-                <div class="loader-bar">
-                    <div class="loader-progress"></div>
-                </div>
-                <div class="loader-text">Loading Portfolio...</div>
-            </div>
-        `;
-        document.body.appendChild(loader);
-        
-        let progress = 0;
-        const progressBar = loader.querySelector('.loader-progress');
-        
-        const interval = setInterval(() => {
-            progress += Math.random() * 15;
-            if (progress > 100) progress = 100;
-            progressBar.style.width = progress + '%';
-            
-            if (progress >= 100) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    loader.classList.add('fade-out');
-                    setTimeout(() => loader.remove(), 500);
-                }, 300);
-            }
-        }, 100);
-    }
-    
     // ===== MAGNETIC BUTTONS =====
     function initMagneticButtons() {
         const magneticButtons = document.querySelectorAll('.btn, .social-link, .project-link');
@@ -246,61 +213,6 @@
     // ===== ADD ALL STYLES =====
     function addStyles() {
         const styles = `
-            /* Loading Screen */
-            .loading-screen {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: var(--background-dark);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 10000;
-                transition: opacity 0.5s ease;
-            }
-            
-            .loading-screen.fade-out {
-                opacity: 0;
-            }
-            
-            .loader-content {
-                text-align: center;
-            }
-            
-            .loader-logo {
-                font-size: 4rem;
-                font-weight: bold;
-                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                margin-bottom: 2rem;
-                animation: pulse 1.5s ease-in-out infinite;
-            }
-            
-            .loader-bar {
-                width: 200px;
-                height: 4px;
-                background: var(--border-light);
-                border-radius: 2px;
-                overflow: hidden;
-                margin: 0 auto 1rem;
-            }
-            
-            .loader-progress {
-                height: 100%;
-                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-                width: 0%;
-                transition: width 0.3s ease;
-            }
-            
-            .loader-text {
-                color: var(--text-light);
-                font-size: 0.9rem;
-            }
-            
             /* Glassmorphism */
             .navbar,
             .skill-category,
@@ -451,7 +363,7 @@
     // ===== INITIALIZE ALL FEATURES =====
     document.addEventListener('DOMContentLoaded', () => {
         addStyles();
-        initLoadingScreen();
+        // initLoadingScreen(); // Disabled - using new preloader instead
         
         // Initialize features after loading
         setTimeout(() => {
