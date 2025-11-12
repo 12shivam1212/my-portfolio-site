@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Shivam Goswami's Portfolio Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 3000"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Shivam Goswami",
+  "license": "MIT"
+}
