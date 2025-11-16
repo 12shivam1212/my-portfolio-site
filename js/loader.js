@@ -1,4 +1,4 @@
-// Pyramid Loader Preloader
+// Loader Preloader
 window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
     

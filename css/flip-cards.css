@@ -1,0 +1,298 @@
+/* From Uiverse.io by ElSombrero2 - Flip Card Effect for Projects */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  justify-items: center;
+}
+
+.card {
+  overflow: visible;
+  width: 100%;
+  max-width: 400px;
+  height: 550px;
+  margin: 0 auto;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 600ms;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.front, .back {
+  background-color: #1a1a2e;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* FRONT - Shows project details FIRST (default view) */
+.front {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.front-content {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.badge {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.description {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-height: 0;
+  padding-bottom: 10px;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin: 0;
+  width: 100%;
+}
+
+.title p {
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.title strong {
+  font-weight: 700;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+  flex: 1;
+  min-height: 0;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  width: 100%;
+  padding-top: 10px;
+  flex-shrink: 0;
+}
+
+.tech-tag {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+  padding: 6px 14px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+/* BACK - Shows GitHub/links on HOVER */
+.back {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transform: rotateY(180deg);
+}
+
+.back::before {
+  position: absolute;
+  content: ' ';
+  display: block;
+  width: 300px;
+  height: 160%;
+  background: linear-gradient(90deg, transparent, #6366f1, #8b5cf6, #6366f1, #8b5cf6, transparent);
+  animation: rotation_481 5000ms infinite linear;
+}
+
+.back-content {
+  position: absolute;
+  width: 99%;
+  height: 99%;
+  background-color: #1a1a2e;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 40px;
+}
+
+.project-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  width: 100%;
+  max-width: 280px;
+}
+
+.project-link-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+}
+
+.project-link-btn i {
+  font-size: 1.3rem;
+}
+
+.card:hover .content {
+  transform: rotateY(180deg);
+}
+
+@keyframes rotation_481 {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 1rem;
+  }
+
+  .card {
+    max-width: 100%;
+    height: 500px;
+  }
+
+  .front-content {
+    padding: 25px;
+  }
+
+  .project-front-title {
+    font-size: 1.7rem;
+  }
+
+  .project-link-btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .card-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .back-content {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    height: 480px;
+  }
+
+  .front-content {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .project-front-title {
+    font-size: 1.5rem;
+  }
+
+  .project-links-front {
+    max-width: 100%;
+    gap: 15px;
+  }
+
+  .project-link-btn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .project-link-btn i {
+    font-size: 1.1rem;
+  }
+
+  .back-content {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+}

@@ -12,8 +12,9 @@
     <!-- CSS Links -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/glass-effect.css">
+    <link rel="stylesheet" href="css/flip-cards.css">
     <link rel="stylesheet" href="css/social-icons.css">
-    <link rel="stylesheet" href="css/pyramid-loader.css">
+    <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/project-images.css">
     <link rel="stylesheet" href="css/advanced-effects.css">
     <link rel="stylesheet" href="css/testimonials.css">
@@ -28,18 +29,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Pyramid Loader Preloader -->
+    <!-- From Uiverse.io by narmesh_sah -->
     <div id="preloader" class="preloader">
-        <div class="pyramid-loader">
-            <div class="wrapper">
-                <span class="side side1"></span>
-                <span class="side side2"></span>
-                <span class="side side3"></span>
-                <span class="side side4"></span>
-                <span class="shadow"></span>
-            </div>
+        <div class="rings anim-pan">
+            <div style="--delay:06" class="ring anim-zoomIn"></div>
+            <div style="--delay:04" class="ring anim-zoomIn"></div>
+            <div style="--delay:03" class="ring anim-zoomIn"></div>
+            <div style="--delay:02" class="ring anim-zoomIn"></div>
+            <div style="--delay:01" class="ring anim-zoomIn"></div>
+            <div style="--delay:00" class="ring anim-zoomIn"></div>
         </div>
-        <div class="loading-text">Loading...</div>
     </div>
 
     <!-- Navigation -->
@@ -80,7 +79,6 @@
                 <h1 class="hero-title">
                     Hi, I'm <span class="text-gradient">Shivam Goswami</span>
                 </h1>
-                <p class="hero-subtitle">AIML Enthusiast</p>
                 <p class="hero-description">
                     I create digital experiences that combine beautiful design with robust functionality.
                     Passionate about building innovative solutions using modern technologies.
@@ -156,37 +154,23 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Hello! I'm Shivam Goswami</h3>
                     <p>
-                        I'm a passionate AIML Enthusiast with 3+ years of professional experience at OnePlus.
-                        I love creating digital solutions that make a difference in people's lives.
-                    </p>
-                    <p>
-                        My journey in programming started with curiosity and has evolved into a deep passion for
-                        building scalable, efficient, and user-friendly applications. During my time at OnePlus,
-                        I've worked on cutting-edge projects that combine artificial intelligence and machine learning
-                        with real-world applications.
+                        I'm passionate about AI/ML and frontend development, and I'm constantly learning by building hands-on projects. I enjoy creating AI-powered applications, experimenting with Python-based machine learning models, and exploring Java for software development. Every project I work on helps me grow in UI/UX, modern web design, and intelligent system integration. I love turning ideas into interactive digital experiences and continuously expanding my skills across different areas of technology.
                     </p>
                     <div class="about-stats">
-                        <div class="stat">
+                        <div class="stat" data-text="Projects" style="--r:-15">
                             <h4>4+</h4>
-                            <p>Projects Completed</p>
                         </div>
-                        <div class="stat">
+                        <div class="stat" data-text="Experience" style="--r:0">
                             <h4>1+</h4>
-                            <p>Year Experience</p>
                         </div>
-                        <div class="stat">
+                        <div class="stat" data-text="Technologies" style="--r:15">
                             <h4>20+</h4>
-                            <p>Technologies Used</p>
                         </div>
                     </div>
                     <a href="resume/mycv.pdf" class="btn btn-primary" download>
                         <i class="fas fa-download"></i> Download Resume
                     </a>
-                </div>
-                <div class="about-image">
-                    <img src="images/about-me.jpg" alt="About Shivam">
                 </div>
             </div>
         </div>
@@ -268,77 +252,108 @@
                 <h2 class="section-title">Featured Projects</h2>
                 <p class="section-subtitle">Some of my recent work</p>
             </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/project1.jpg" alt="Real Estate Price Predictor">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/12shivam1212" class="project-link" target="_blank">
+                        <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="card">
+                    <div class="content">
+                        <div class="back">
+                            <div class="back-content">
+                                <a href="https://github.com/12shivam1212" class="project-link-btn" target="_blank">
                                     <i class="fab fa-github"></i>
+                                    <span>View on GitHub</span>
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Real Estate Price Predictor (RP)</h3>
-                        <p>A comprehensive machine learning project solving real-world real estate pricing problems. Includes complete ML pipeline from data collection, analysis, feature engineering, correlation studies, handling missing values, cross-validation, and stratified sampling to deliver accurate house price predictions.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">Jupyter Notebook</span>
-                            <span class="tech-tag">Data Pipeline</span>
+                        <div class="front">
+                            <div class="front-content">
+                                <small class="badge">Machine Learning</small>
+                                <div class="description">
+                                    <div class="title">
+                                        <p><strong>Real Estate Price Predictor</strong></p>
+                                    </div>
+                                    <p class="card-description">
+                                        A comprehensive machine learning project solving real-world real estate pricing problems. Includes complete ML pipeline from data collection, analysis, feature engineering, correlation studies, handling missing values, cross-validation, and stratified sampling to deliver accurate house price predictions.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Machine Learning</span>
+                                        <span class="tech-tag">Jupyter Notebook</span>
+                                        <span class="tech-tag">Data Pipeline</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/project2.jpg" alt="SAKSHAM Platform">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://campus.nitingoyal.tech" class="project-link" target="_blank">
+                <!-- Project 2 -->
+                <div class="card">
+                    <div class="content">
+                        <div class="back">
+                            <div class="back-content">
+                                <a href="https://campus.nitingoyal.tech" class="project-link-btn" target="_blank">
                                     <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Site</span>
                                 </a>
-                                <a href="https://github.com/12shivam1212" class="project-link" target="_blank">
+                                <a href="https://github.com/12shivam1212" class="project-link-btn" target="_blank">
                                     <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>SAKSHAM — Student Collaboration Platform</h3>
-                        <p>Led the development of a full-stack platform enabling college students to collaborate, share ideas, and showcase projects. Served as Team Leader with focus on Frontend and UI/UX design, creating an intuitive and engaging user experience.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Tailwind CSS</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">Supabase</span>
+                        <div class="front">
+                            <div class="front-content">
+                                <small class="badge">Full Stack</small>
+                                <div class="description">
+                                    <div class="title">
+                                        <p><strong>SAKSHAM — Student Collaboration Platform</strong></p>
+                                    </div>
+                                    <p class="card-description">
+                                        Led the development of a full-stack platform enabling college students to collaborate, share ideas, and showcase projects. Served as Team Leader with focus on Frontend and UI/UX design, creating an intuitive and engaging user experience.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">Tailwind CSS</span>
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">Express</span>
+                                        <span class="tech-tag">Supabase</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/project3.jpg" alt="AI Model Pipeline Framework">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/12shivam1212" class="project-link" target="_blank">
+                <!-- Project 3 -->
+                <div class="card">
+                    <div class="content">
+                        <div class="back">
+                            <div class="back-content">
+                                <a href="https://github.com/12shivam1212" class="project-link-btn" target="_blank">
                                     <i class="fab fa-github"></i>
+                                    <span>View on GitHub</span>
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>AI Model Pipeline Framework</h3>
-                        <p>Developed an end-to-end Python-based ML pipeline framework for automated data preprocessing, feature engineering, model training, and evaluation. Includes custom transformers, automated hyperparameter tuning, and deployment-ready model serialization.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Scikit-learn</span>
-                            <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">MLflow</span>
-                            <span class="tech-tag">Docker</span>
+                        <div class="front">
+                            <div class="front-content">
+                                <small class="badge">AI/ML</small>
+                                <div class="description">
+                                    <div class="title">
+                                        <p><strong>AI Model Pipeline Framework</strong></p>
+                                    </div>
+                                    <p class="card-description">
+                                        Developed an end-to-end Python-based ML pipeline framework for automated data preprocessing, feature engineering, model training, and evaluation. Includes custom transformers, automated hyperparameter tuning, and deployment-ready model serialization.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Scikit-learn</span>
+                                        <span class="tech-tag">Pandas</span>
+                                        <span class="tech-tag">MLflow</span>
+                                        <span class="tech-tag">Docker</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -445,8 +460,7 @@
 
     <!-- JavaScript -->
     <script src="js/particles.js"></script>
-    <script src="js/pyramid-loader.js"></script>
-    <script src="js/sliding-text.js"></script>
+    <script src="js/loader.js"></script>
     <script src="js/scroll-animations.js"></script>
     <script src="js/cursor-trail.js"></script>
     <script src="js/skill-bars.js"></script>
