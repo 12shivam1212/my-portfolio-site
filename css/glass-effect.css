@@ -1,0 +1,156 @@
+/* Glass Morphism Effect - Inspired by Uiverse.io */
+
+/* Glass Box Effect */
+.glass-box {
+  background-color: rgba(255, 255, 255, 0.074);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: 0.7rem;
+  transition: all ease 0.3s;
+}
+
+.glass-box:hover {
+  box-shadow: 0px 0px 20px 1px rgba(99, 102, 241, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.454);
+  transform: translateY(-5px);
+}
+
+/* Glass Container with Decorative Elements */
+.glass-container {
+  position: relative;
+}
+
+.glass-container::before,
+.glass-container::after {
+  content: "";
+  background-color: rgba(99, 102, 241, 0.3);
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glass-container::before {
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  top: 30%;
+  right: 7%;
+  animation: floatBubble 6s ease-in-out infinite;
+}
+
+.glass-container::after {
+  height: 3rem;
+  width: 3rem;
+  top: 8%;
+  right: 5%;
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  border-radius: 50%;
+  animation: floatBubble 8s ease-in-out infinite reverse;
+}
+
+@keyframes floatBubble {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Apply glass effect to various elements */
+.skill-category,
+.project-card,
+.contact-form,
+.about-stats,
+.contact-item {
+  background-color: rgba(255, 255, 255, 0.074) !important;
+  border: 1px solid rgba(255, 255, 255, 0.222) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) !important;
+  border-radius: 0.7rem !important;
+  transition: all ease 0.3s !important;
+}
+
+.skill-category:hover,
+.project-card:hover,
+.contact-item:hover {
+  box-shadow: 0px 0px 20px 1px rgba(99, 102, 241, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.454) !important;
+  transform: translateY(-5px) !important;
+}
+
+/* Enhanced glass effect for cards */
+.glass-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.glass-card:hover::before {
+  left: 100%;
+}
+
+/* Stats box glass effect */
+.stat {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(15px) !important;
+  border-radius: 0.5rem !important;
+  padding: 1.5rem !important;
+  transition: all ease 0.3s !important;
+}
+
+.stat:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0px 0px 15px 1px rgba(99, 102, 241, 0.3) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Navigation glass effect */
+.navbar {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Form inputs glass effect */
+.contact-form input,
+.contact-form textarea {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(99, 102, 241, 0.5) !important;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Skill items glass effect */
+.skill-item {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 0.5rem !important;
+  transition: all ease 0.3s !important;
+}
+
+.skill-item:hover {
+  background-color: rgba(99, 102, 241, 0.2) !important;
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.4) !important;
+  transform: scale(1.1) !important;
+}
