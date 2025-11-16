@@ -992,11 +992,13 @@ p {
 
     .about-stats {
         gap: 1.5rem;
+        margin: 0 -10px; /* Reduce overlap on tablet */
     }
 
     .stat {
         width: 130px;
         height: 130px;
+        margin: 0 -10px; /* Less overlap on tablet */
     }
 
     .projects-grid {
@@ -1099,6 +1101,16 @@ p {
         margin: 0 auto;
     }
 
+    /* Reduce glow expansion on tablet for better performance */
+    .hero-img-container:hover::before {
+        top: -40px;
+        left: -40px;
+        right: -40px;
+        bottom: -40px;
+        box-shadow: 0 0 60px rgba(99, 102, 241, 0.7),
+                    0 0 90px rgba(139, 92, 246, 0.5);
+    }
+
     /* Sections */
     section {
         padding: 60px 0;
@@ -1141,11 +1153,14 @@ p {
     .about-stats {
         flex-wrap: wrap;
         gap: 1.25rem;
+        justify-content: center;
     }
     
     .stat {
         width: 120px;
         height: 120px;
+        margin: 0 -5px; /* Minimal overlap on mobile */
+        transform: rotate(0deg) !important; /* Remove rotation on mobile for better readability */
     }
 
     .stat h4 {
@@ -1339,11 +1354,14 @@ p {
         flex-direction: row;
         gap: 1rem;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     .stat {
         width: 110px;
         height: 110px;
+        margin: 0; /* No overlap on small mobile */
+        transform: rotate(0deg) !important; /* No rotation on small mobile */
     }
 
     .stat h4 {
