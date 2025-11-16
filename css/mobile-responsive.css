@@ -1,0 +1,310 @@
+/* Mobile Responsive Enhancements */
+
+/* Prevent text size adjustment on orientation change */
+html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Smooth scrolling for mobile */
+* {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Better tap highlighting */
+* {
+    -webkit-tap-highlight-color: rgba(99, 102, 241, 0.2);
+    tap-highlight-color: rgba(99, 102, 241, 0.2);
+}
+
+/* Remove default button styling on iOS */
+button,
+input,
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Landscape orientation fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 60px 0 30px;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        min-height: auto;
+    }
+    
+    .hero-img-container {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .nav-menu {
+        max-height: calc(100vh - 60px);
+    }
+    
+    section {
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 480px) and (orientation: landscape) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-img-container {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Touch-friendly interactive elements */
+@media (max-width: 768px) {
+    .btn,
+    .nav-link,
+    .social-link,
+    .project-link,
+    .nav-toggle {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Larger touch targets */
+    .contact-item,
+    .skill-item,
+    .footer-links a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Better spacing for mobile forms */
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* Prevent zoom on input focus for iOS */
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+        font-size: 16px !important;
+    }
+}
+
+/* Optimize images for mobile */
+@media (max-width: 768px) {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .project-image img,
+    .hero-img {
+        object-fit: cover;
+        width: 100%;
+    }
+}
+
+/* Better mobile navigation */
+@media (max-width: 768px) {
+    .nav-menu {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .nav-item {
+        width: 100%;
+    }
+    
+    .nav-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Improve readability on mobile */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    p {
+        line-height: 1.7;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+/* Prevent content overflow */
+@media (max-width: 768px) {
+    * {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    pre,
+    code {
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+}
+
+/* Optimize animations for mobile */
+@media (max-width: 768px) {
+    /* Reduce motion for better performance */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+    
+    /* Simpler animations on mobile */
+    .hero-content,
+    .hero-image {
+        animation: none;
+    }
+    
+    .project-card,
+    .skill-category {
+        transition: transform 0.2s ease;
+    }
+}
+
+/* Fix for safe areas on notched devices */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+    
+    .navbar {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+    
+    .footer {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+}
+
+/* Mobile-specific utility classes */
+@media (max-width: 768px) {
+    .mobile-center {
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .mobile-full-width {
+        width: 100% !important;
+    }
+    
+    .mobile-stack {
+        flex-direction: column !important;
+    }
+}
+
+/* Improve mobile loading performance */
+@media (max-width: 768px) {
+    /* Disable expensive effects on mobile */
+    .parallax-bg {
+        display: none;
+    }
+    
+    /* Simplify shadows */
+    .project-card,
+    .skill-category,
+    .contact-form {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .project-card:hover,
+    .skill-category:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Fixed elements optimization for mobile */
+@media (max-width: 768px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    
+    .back-to-top {
+        z-index: 999;
+    }
+}
+
+/* Improve grid layouts on mobile */
+@media (max-width: 480px) {
+    .projects-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Better mobile menu */
+@media (max-width: 768px) {
+    .nav-menu {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav-menu::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+    }
+}
+
+/* Print optimizations remain */
+@media print {
+    @page {
+        margin: 1cm;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+}
