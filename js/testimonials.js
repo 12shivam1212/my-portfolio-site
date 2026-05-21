@@ -4,28 +4,28 @@ class TestimonialsCarousel {
         this.currentIndex = 0;
         this.testimonials = [
             {
-                name: 'OnePlus Team',
-                role: 'Tech Leadership',
-                text: 'Shivam has shown exceptional skills in AI/ML development and innovative problem-solving approaches.',
-                avatar: '👨‍💼'
+                name: 'Education',
+                role: 'NIT Kurukshetra',
+                text: 'Pursuing B.Tech in Sustainable Energy Technology under the Electrical Engineering department.',
+                avatar: '🎓'
             },
             {
-                name: 'Project Collaborator',
-                role: 'SAKSHAM Platform',
-                text: 'Outstanding work on the student management platform. Great attention to detail and user experience.',
-                avatar: '👩‍💻'
+                name: 'Other Works & Interests',
+                role: 'Renewable Energy',
+                text: 'Focused on Solar PV Systems, Energy Analytics, MPPT Algorithms, and intelligent smart energy solutions.',
+                avatar: '☀️'
             },
             {
-                name: 'Team Member',
-                role: 'ML Project',
-                text: 'The Real Estate Predictor showcases impressive machine learning capabilities and data analysis skills.',
-                avatar: '👨‍🔬'
+                name: 'Software Skills',
+                role: 'Full-Stack & Data',
+                text: 'Experience with Python, JavaScript, React.js, Node.js, and integrating REST APIs with databases like MySQL and Supabase.',
+                avatar: '💻'
             },
             {
-                name: 'Peer Review',
-                role: 'AI Pipeline Framework',
-                text: 'Comprehensive and well-structured AI deployment pipeline. Professional implementation and documentation.',
-                avatar: '👩‍🚀'
+                name: 'Design & Tools',
+                role: 'UI/UX & Prototyping',
+                text: 'Proficient in Figma, UI/UX Design, MATLAB/Simulink for simulations, and strong team collaboration skills.',
+                avatar: '🎨'
             }
         ];
         
@@ -39,12 +39,16 @@ class TestimonialsCarousel {
 
     createCarousel() {
         const contactSection = document.querySelector('#contact');
-        if (!contactSection) return;
+        console.log('Contact section found:', contactSection);
+        if (!contactSection) {
+            console.error('Contact section not found!');
+            return;
+        }
 
         const carouselContainer = document.createElement('div');
         carouselContainer.className = 'testimonials-section';
         carouselContainer.innerHTML = `
-            <h3 class="section-title" style="text-align: center; margin-bottom: 3rem; font-size: 2rem;">What People Say</h3>
+            <h3 class="section-title" style="text-align: center; margin-bottom: 3rem; font-size: 2rem;">About Shivam</h3>
             <div class="testimonials-carousel">
                 <button class="carousel-btn prev-btn" aria-label="Previous testimonial">
                     <i class="fas fa-chevron-left"></i>
@@ -125,5 +129,6 @@ class TestimonialsCarousel {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded - Initializing TestimonialsCarousel');
     new TestimonialsCarousel();
 });
