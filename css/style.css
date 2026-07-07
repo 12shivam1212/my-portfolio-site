@@ -40,18 +40,18 @@ html {
 
 /* Color Variables */
 :root {
-    --primary-color: #6366f1;
-    --secondary-color: #8b5cf6;
-    --accent-color: #06b6d4;
-    --text-dark: #e2e8f0;
-    --text-light: #94a3b8;
-    --background-light: #1e293b;
-    --background-dark: #0f172a;
+    --primary-color: #ff003c;
+    --secondary-color: #ba002b;
+    --accent-color: #ff3366;
+    --text-dark: #f3f4f6;
+    --text-light: #9ca3af;
+    --background-light: #180a0a;
+    --background-dark: #0a0000;
     --white: #ffffff;
-    --card-bg: #334155;
-    --border-light: #475569;
-    --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.4);
+    --card-bg: #1c0b0b;
+    --border-light: #3a1515;
+    --shadow: 0 10px 25px rgba(255, 0, 60, 0.15);
+    --shadow-lg: 0 20px 40px rgba(255, 0, 60, 0.25);
 }
 
 /* Typography */
