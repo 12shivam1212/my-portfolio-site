@@ -1,5 +1,7 @@
 /* Testimonials Carousel Styles */
 .testimonials-section {
+    position: relative;
+    z-index: 2;
     padding: 6rem 2rem;
     background: rgba(255, 255, 255, 0.02);
     margin: 4rem 0;
@@ -86,7 +88,7 @@
     font-size: 1.3rem;
     color: var(--text-light);
     margin-bottom: 0.3rem;
-    background: linear-gradient(45deg, #6366f1, #8b5cf6);
+    background: linear-gradient(45deg, #ff003c, #ff6644);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -96,15 +98,15 @@
 
 .testimonial-role {
     font-size: 0.95rem;
-    color: #06b6d4;
+    color: #ff3366;
     font-weight: 500;
     text-align: center;
     width: 100%;
 }
 
 .carousel-btn {
-    background: rgba(99, 102, 241, 0.2);
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    background: rgba(255, 0, 60, 0.2);
+    border: 1px solid rgba(255, 0, 60, 0.3);
     color: var(--text-light);
     width: 55px;
     height: 55px;
@@ -122,9 +124,9 @@
 }
 
 .carousel-btn:hover {
-    background: rgba(99, 102, 241, 0.4);
+    background: rgba(255, 0, 60, 0.4);
     transform: scale(1.15);
-    box-shadow: 0 0 25px rgba(99, 102, 241, 0.6);
+    box-shadow: 0 0 25px rgba(255, 0, 60, 0.6);
 }
 
 .carousel-dots {
@@ -144,10 +146,10 @@
 }
 
 .dot.active {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    background: linear-gradient(135deg, #ff003c, #ba002b);
     width: 30px;
     border-radius: 6px;
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+    box-shadow: 0 0 15px rgba(255, 0, 60, 0.6);
 }
 
 .dot:hover {

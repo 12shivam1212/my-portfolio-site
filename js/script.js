@@ -20,7 +20,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Navbar scroll effect
     initNavbarScroll();
+
+    // Mobile card tap-to-flip (touch devices can't hover)
+    initMobileCardFlip();
 });
+
+// Mobile tap-to-flip for project cards
+function initMobileCardFlip() {
+    // Only add tap listeners on actual touch devices
+    if (!('ontouchstart' in window) && !navigator.maxTouchPoints) return;
+
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // If user tapped a link inside the back, let it through
+            if (e.target.closest('a')) return;
+            this.classList.toggle('tapped');
+        });
+    });
+}
 
 // Navigation functionality
 function initNavigation() {
@@ -54,29 +72,52 @@ function initNavigation() {
 
 // Smooth scrolling for navigation links
 function initSmoothScrolling() {
+    const NAVBAR_HEIGHT = 70;
+    const DURATION = 700; // ms
+
+    function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function smoothScrollTo(targetY) {
+        const startY    = window.scrollY || window.pageYOffset;
+        const distance  = targetY - startY;
+        const startTime = performance.now();
+
+        function step(now) {
+            const elapsed  = now - startTime;
+            const progress = Math.min(elapsed / DURATION, 1);
+            window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+            if (progress < 1) requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
+    }
+
     const links = document.querySelectorAll('a[href^="#"]');
-    
+
     links.forEach(link => {
         link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
             e.preventDefault();
-            
-            const targetId = this.getAttribute('href').substring(1);
+
+            const targetId      = href.substring(1);
             const targetElement = document.getElementById(targetId);
-            
+
             if (targetElement) {
-                const offsetTop = targetElement.offsetTop - 70; // Account for fixed navbar
-                
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-                
+                const targetY = targetElement.getBoundingClientRect().top
+                    + (window.scrollY || window.pageYOffset)
+                    - NAVBAR_HEIGHT;
+
+                smoothScrollTo(targetY);
+
                 // Close mobile menu if open
                 const mobileMenu = document.getElementById('nav-menu');
-                const navToggle = document.getElementById('mobile-menu');
-                if (mobileMenu.classList.contains('active')) {
+                const navToggle  = document.getElementById('mobile-menu');
+                if (mobileMenu && mobileMenu.classList.contains('active')) {
                     mobileMenu.classList.remove('active');
-                    navToggle.classList.remove('active');
+                    if (navToggle) navToggle.classList.remove('active');
                 }
             }
         });
@@ -503,6 +544,7 @@ window.addEventListener('error', function(e) {
     console.error('JavaScript error:', e.error);
     // Could send error to analytics service
 });
+
 
 // Console welcome message
 console.log(`

@@ -145,7 +145,7 @@
   display: block;
   width: 300px;
   height: 160%;
-  background: linear-gradient(90deg, transparent, #6366f1, #8b5cf6, #6366f1, #8b5cf6, transparent);
+  background: linear-gradient(90deg, transparent, #ff003c, #cc0020, #ff003c, #cc0020, transparent);
   animation: rotation_481 5000ms infinite linear;
 }
 
@@ -177,14 +177,14 @@
   font-size: 1.1rem;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 0, 60, 0.35);
   width: 100%;
   max-width: 280px;
 }
 
 .project-link-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+  box-shadow: 0 8px 25px rgba(255, 0, 60, 0.55);
 }
 
 .project-link-btn i {
@@ -294,5 +294,53 @@
   .badge {
     font-size: 0.75rem;
     padding: 6px 12px;
+  }
+}
+/* Touch/tap flip support for mobile devices */
+@media (hover: none) {
+  .card .content {
+    transition: transform 600ms;
+  }
+
+  /* Tap to flip on mobile */
+  .card.tapped .content {
+    transform: rotateY(180deg);
+  }
+
+  /* Hint indicator on mobile */
+  .card::after {
+    content: 'Tap to see links';
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.45);
+    pointer-events: none;
+    z-index: 5;
+    white-space: nowrap;
+  }
+
+  .card.tapped::after {
+    content: 'Tap again to flip back';
+  }
+}
+
+@media (max-width: 360px) {
+  .card {
+    height: 440px;
+  }
+
+  .front-content {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .card-description {
+    font-size: 0.85rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
   }
 }

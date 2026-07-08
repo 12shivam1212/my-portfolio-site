@@ -36,7 +36,8 @@ class ParallaxEffect {
             element.style.transform = `translate3d(0, ${yPos}px, 0)`;
         });
 
-        // Parallax for hero section elements
+        // Parallax for hero section elements - disabled to prevent section overlap
+        /*
         const hero = document.querySelector('.hero');
         if (hero && scrolled < window.innerHeight) {
             const heroContent = hero.querySelector('.hero-content');
@@ -45,6 +46,7 @@ class ParallaxEffect {
                 heroContent.style.opacity = 1 - (scrolled / window.innerHeight);
             }
         }
+        */
     }
 }
 

@@ -99,7 +99,7 @@
     
     // ===== FLOATING ELEMENTS =====
     function initFloatingElements() {
-        const floatingElements = document.querySelectorAll('.hero-img-container, .skill-item i');
+        const floatingElements = document.querySelectorAll('.hero-image, .skill-item i');
         
         floatingElements.forEach((el, index) => {
             const delay = index * 0.1;
@@ -111,13 +111,15 @@
     
     // ===== PARALLAX SCROLL EFFECT =====
     function initParallax() {
-        const parallaxElements = document.querySelectorAll('.hero-image, .about-image');
+        // Only parallax .about-image — NOT .hero-image because it has a float
+        // animation running on it. Setting transform here would conflict.
+        const parallaxElements = document.querySelectorAll('.about-image');
         
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             
             parallaxElements.forEach(el => {
-                const speed = 0.5;
+                const speed = 0.3;
                 el.style.transform = `translateY(${scrolled * speed}px)`;
             });
         });
@@ -372,7 +374,7 @@
             initNumberCounter();
             initSkillProgress();
             initFloatingElements();
-            initParallax();
+            // initParallax(); // Disabled to ensure continuous and clean section scrolling without overlap
             initGradientAnimation();
             initScrollProgress();
             // initSoundEffects(); // Uncomment to enable sound

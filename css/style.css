@@ -6,7 +6,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    /* scroll-behavior handled by JS for Android compatibility */
     width: 100%;
     overflow-x: hidden;
 }
@@ -15,7 +15,7 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    background-color: var(--background-dark);
+    background-color: transparent;
     overflow-x: hidden;
     position: relative;
     width: 100%;
@@ -226,7 +226,7 @@ p {
 .hero {
     min-height: 100vh;
     padding: 100px 0 50px;
-    background: var(--background-dark);
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -343,6 +343,11 @@ p {
 }
 
 /* Section Styles */
+section {
+    position: relative;
+    z-index: 2;
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 4rem;
@@ -381,7 +386,7 @@ p {
 /* About Section */
 .about {
     padding: 100px 0;
-    background: var(--background-dark);
+    background: transparent;
 }
 
 .about-content {
@@ -520,7 +525,7 @@ p {
 /* Skills Section */
 .skills {
     padding: 100px 0;
-    background: var(--background-dark);
+    background: transparent;
 }
 
 .skills-grid {
@@ -590,7 +595,7 @@ p {
 /* Projects Section */
 .projects {
     padding: 100px 0;
-    background: var(--background-dark);
+    background: transparent;
 }
 
 .projects-more {
@@ -729,7 +734,7 @@ p {
 /* Contact Section */
 .contact {
     padding: 100px 0;
-    background: var(--background-dark);
+    background: transparent;
     overflow-x: hidden;
 }
 
@@ -863,7 +868,9 @@ p {
 
 /* Footer */
 .footer {
-    background: var(--background-dark);
+    position: relative;
+    z-index: 2;
+    background: transparent;
     color: var(--text-dark);
     padding: 2rem 0;
     border-top: 1px solid var(--border-light);

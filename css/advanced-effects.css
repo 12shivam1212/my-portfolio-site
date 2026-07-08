@@ -2,7 +2,7 @@
 
 /* 3. Gradient Text Animations */
 .section-title {
-    background: linear-gradient(45deg, #6366f1, #8b5cf6, #06b6d4, #6366f1);
+    background: linear-gradient(45deg, #ff003c, #ff3344, #ff6644, #cc0020, #ff003c);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -60,7 +60,7 @@
 
 .skill-progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+    background: linear-gradient(90deg, #ff003c, #cc0020, #ff6644);
     background-size: 200% 100%;
     border-radius: 10px;
     width: 0%;
@@ -102,47 +102,27 @@
     left: 0;
     width: 100%;
     height: 140%;
-    background: radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.1), transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.1), transparent 50%);
+    background: radial-gradient(circle at 30% 50%, rgba(255, 0, 60, 0.12), transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(180, 0, 30, 0.1), transparent 50%);
     will-change: transform;
 }
 
-/* 10. Color-Shifting Background */
-body {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-    background-size: 400% 400%;
-    animation: background-shift 30s ease infinite;
-}
+/* 10. Color-Shifting Background - now handled by mesh-bg.css */
+/* body background removed here to avoid conflict with mesh-bg.css */
 
-@keyframes background-shift {
-    0%, 100% { background-position: 0% 50%; }
-    25% { background-position: 50% 50%; }
-    50% { background-position: 100% 50%; }
-    75% { background-position: 50% 50%; }
-}
-
-/* 5. Cursor Trail Effect */
-.cursor-trail {
+#bubble-canvas {
     position: fixed;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
     pointer-events: none;
-    z-index: 9998;
-    mix-blend-mode: screen;
-    animation: trail-fade 1s ease-out forwards;
+    background: transparent !important;
 }
 
-@keyframes trail-fade {
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(0);
-        opacity: 0;
-    }
-}
+/* 5. Cursor Trail — handled by red-smoke cursor JS */
+/* Old trail CSS removed; see js/cursor-trail.js for the new smoke effect */
 
 /* 9. Typewriter Effect Styles */
 .typewriter-text {
@@ -183,18 +163,18 @@ body {
 }
 
 .btn-primary {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 20px rgba(255, 0, 60, 0.45);
     animation: pulse-glow 2s ease infinite;
 }
 
 @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.4); }
-    50% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.6); }
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 60, 0.45); }
+    50% { box-shadow: 0 0 35px rgba(255, 0, 60, 0.70); }
 }
 
 /* Smooth Animations */
 * {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth — handled by JS for Android compat */
 }
 
 /* Enhanced Glass Effect */
@@ -229,17 +209,14 @@ body {
         transform: translateY(-5px);
     }
     
-    /* Reduce animation intensity on small screens */
-    .cursor-trail {
-        display: none;
-    }
+    /* Cursor smoke already disabled on mobile in cursor-trail.js */
     
     .btn::before {
         display: none;
     }
     
     @keyframes pulse-glow {
-        0%, 100% { box-shadow: 0 0 15px rgba(99, 102, 241, 0.3); }
-        50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
+        0%, 100% { box-shadow: 0 0 15px rgba(255, 0, 60, 0.3); }
+        50% { box-shadow: 0 0 20px rgba(255, 0, 60, 0.5); }
     }
 }
