@@ -1,240 +1,63 @@
 /* ============================================
-   RED SMOKE & ATMOSPHERIC EFFECTS
+   ATMOSPHERIC ACCENTS — subtle red accents only
    ============================================ */
 
-/* ---- Ambient smoke orbs fixed in viewport ---- */
-body::before,
-body::after {
-    content: '';
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-    filter: blur(80px);
-    opacity: 0.25;
-    animation: smokeDrift1 18s ease-in-out infinite alternate;
-}
-
-body::before {
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(circle, rgba(220, 10, 10, 0.8), rgba(150, 0, 0, 0.4), transparent 70%);
-    top: -120px;
-    left: -100px;
-    animation-name: smokeDrift1;
-}
-
-body::after {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(255, 40, 0, 0.7), rgba(180, 0, 0, 0.35), transparent 70%);
-    bottom: -80px;
-    right: -80px;
-    animation-name: smokeDrift2;
-    animation-duration: 22s;
-}
-
-@keyframes smokeDrift1 {
-    0%   { transform: translate(0,  0)   scale(1);    opacity: 0.18; }
-    33%  { transform: translate(60px, 40px) scale(1.15); opacity: 0.28; }
-    66%  { transform: translate(-30px, 70px) scale(0.9); opacity: 0.22; }
-    100% { transform: translate(40px, -20px) scale(1.05); opacity: 0.25; }
-}
-
-@keyframes smokeDrift2 {
-    0%   { transform: translate(0, 0)    scale(1);    opacity: 0.2; }
-    33%  { transform: translate(-50px, -30px) scale(1.1); opacity: 0.3; }
-    66%  { transform: translate(20px, -60px) scale(0.95); opacity: 0.18; }
-    100% { transform: translate(-40px, 30px) scale(1.08); opacity: 0.25; }
-}
-
-/* ---- Additional fixed smoke wisps ---- */
-.smoke-wisp {
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-    filter: blur(60px);
-    opacity: 0;
-    animation: wispFloat 12s ease-in-out infinite;
-}
-
-.smoke-wisp-1 {
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(200, 0, 0, 0.6), transparent 70%);
-    top: 30%;
-    right: -60px;
-    animation-delay: 0s;
-    animation-duration: 15s;
-}
-
-.smoke-wisp-2 {
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(255, 50, 0, 0.5), transparent 70%);
-    top: 60%;
-    left: -40px;
-    animation-delay: 5s;
-    animation-duration: 18s;
-}
-
-.smoke-wisp-3 {
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(180, 0, 30, 0.55), transparent 70%);
-    top: 10%;
-    left: 40%;
-    animation-delay: 9s;
-    animation-duration: 20s;
-}
-
-@keyframes wispFloat {
-    0%   { opacity: 0;    transform: translateY(0)   scale(0.8); }
-    20%  { opacity: 0.22; transform: translateY(-20px) scale(1); }
-    50%  { opacity: 0.18; transform: translateY(-50px) scale(1.15); }
-    80%  { opacity: 0.12; transform: translateY(-80px) scale(0.95); }
-    100% { opacity: 0;    transform: translateY(-120px) scale(0.7); }
-}
-
-/* ---- Section-level red smoke glow overlays ---- */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background:
-        radial-gradient(ellipse 55% 45% at 15% 20%, rgba(200, 0, 0, 0.12), transparent),
-        radial-gradient(ellipse 40% 40% at 85% 80%, rgba(255, 30, 0, 0.10), transparent);
-    pointer-events: none;
-    z-index: 0;
-    animation: heroGlow 10s ease-in-out infinite alternate;
-}
-
-@keyframes heroGlow {
-    0%   { opacity: 0.7; }
-    100% { opacity: 1.0; }
-}
-
-/* ---- Glowing red borders on section titles ---- */
+/* ---- Glowing red underline on section titles ---- */
 .section-title::after {
     background: linear-gradient(135deg, var(--primary-color), #ff6644, var(--secondary-color)) !important;
-    box-shadow: 0 0 12px rgba(255, 0, 60, 0.7), 0 0 25px rgba(255, 0, 30, 0.4);
+    box-shadow: 0 0 8px rgba(255, 0, 60, 0.5);
 }
 
-/* ---- Red glow on stat cards ---- */
+/* ---- Red glow on stat cards hover ---- */
 .stat:hover {
-    box-shadow: 0 0 25px rgba(255, 0, 40, 0.5),
-                0 0 50px rgba(200, 0, 0, 0.25) !important;
+    box-shadow: 0 0 20px rgba(255, 0, 40, 0.35) !important;
 }
 
-/* ---- Red ember glow on buttons ---- */
+/* ---- Red ember glow on primary buttons ---- */
 .btn-primary {
-    box-shadow: 0 0 18px rgba(255, 0, 60, 0.45),
-                0 6px 20px rgba(200, 0, 0, 0.3) !important;
-    animation: btnEmberPulse 3s ease infinite !important;
-}
-
-@keyframes btnEmberPulse {
-    0%, 100% { box-shadow: 0 0 18px rgba(255, 0, 60, 0.45), 0 6px 20px rgba(200, 0, 0, 0.3); }
-    50%       { box-shadow: 0 0 30px rgba(255, 0, 60, 0.70), 0 8px 30px rgba(200, 0, 0, 0.5); }
+    box-shadow: 0 0 14px rgba(255, 0, 60, 0.35),
+                0 4px 16px rgba(200, 0, 0, 0.2) !important;
 }
 
 /* ---- Red glow on nav logo ---- */
 .nav-logo a {
-    text-shadow: 0 0 15px rgba(255, 0, 60, 0.5);
+    text-shadow: 0 0 12px rgba(255, 0, 60, 0.4);
 }
 
-/* ---- Red ember glow on hover for social icons ---- */
+/* ---- Red hover glow on social icons ---- */
 .social-icon-wrapper:hover .social-icon,
 .social-link:hover {
-    box-shadow: 0 0 20px rgba(255, 0, 60, 0.6) !important;
+    box-shadow: 0 0 16px rgba(255, 0, 60, 0.5) !important;
 }
 
-/* ---- Smoke border on skill/project cards ---- */
+/* ---- Subtle red border on cards ---- */
 .skill-category,
 .project-card,
 .card {
-    box-shadow: 0 4px 15px rgba(180, 0, 0, 0.2),
-                0 0 0 1px rgba(255, 0, 60, 0.06) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 0, 60, 0.05) !important;
     transition: box-shadow 0.3s ease, transform 0.3s ease !important;
 }
 
 .skill-category:hover,
 .project-card:hover,
 .card:hover {
-    box-shadow: 0 10px 35px rgba(200, 0, 0, 0.35),
-                0 0 0 1px rgba(255, 0, 60, 0.15),
-                0 0 40px rgba(255, 0, 30, 0.12) !important;
+    box-shadow: 0 8px 28px rgba(200, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 0, 60, 0.10) !important;
 }
 
-/* ---- Red smoke behind hero image ---- */
-.hero-img-container::after {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 140%;
-    height: 140%;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(220, 0, 0, 0.18), transparent 65%);
-    filter: blur(20px);
-    pointer-events: none;
-    z-index: -2;
-    animation: imgSmokeGlow 6s ease-in-out infinite alternate;
-}
-
-@keyframes imgSmokeGlow {
-    0%   { opacity: 0.6; transform: translate(-50%, -50%) scale(0.95); }
-    100% { opacity: 1.0; transform: translate(-50%, -50%) scale(1.1); }
-}
-
-/* ---- Contact items red glow ---- */
+/* ---- Red contact hover ---- */
 .contact-item:hover {
-    box-shadow: 0 0 20px rgba(255, 0, 60, 0.3);
-    border-left: 3px solid rgba(255, 0, 60, 0.5);
+    box-shadow: 0 0 16px rgba(255, 0, 60, 0.2);
+    border-left: 3px solid rgba(255, 0, 60, 0.4);
     transition: all 0.3s ease;
 }
 
-/* ---- Red gradient on footer border ---- */
+/* ---- Red footer border ---- */
 .footer {
     border-top: 1px solid transparent !important;
     background-image: linear-gradient(var(--background-dark), var(--background-dark)),
-                      linear-gradient(90deg, transparent, rgba(255,0,60,0.4), transparent) !important;
+                      linear-gradient(90deg, transparent, rgba(255, 0, 60, 0.25), transparent) !important;
     background-origin: border-box !important;
     background-clip: padding-box, border-box !important;
-}
-
-/* ---- Reduced smoke on mobile for performance ---- */
-@media (max-width: 768px) {
-    body::before {
-        width: 280px;
-        height: 280px;
-        filter: blur(50px);
-        opacity: 0.18;
-    }
-
-    body::after {
-        width: 220px;
-        height: 220px;
-        filter: blur(45px);
-        opacity: 0.15;
-    }
-
-    .smoke-wisp-1,
-    .smoke-wisp-2,
-    .smoke-wisp-3 {
-        display: none; /* hide extra wisps on mobile */
-    }
-
-    .hero::before {
-        opacity: 0.6;
-    }
-}
-
-@media (max-width: 480px) {
-    body::before,
-    body::after {
-        opacity: 0.1;
-        filter: blur(40px);
-    }
 }

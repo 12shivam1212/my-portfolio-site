@@ -111,14 +111,7 @@
 /* body background removed here to avoid conflict with mesh-bg.css */
 
 #bubble-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
-    pointer-events: none;
-    background: transparent !important;
+    display: none !important; /* particles disabled — plain dark bg */
 }
 
 /* 5. Cursor Trail — handled by red-smoke cursor JS */

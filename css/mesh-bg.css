@@ -1,112 +1,120 @@
 /* ============================================
-   ANIMATED GRADIENT MESH BACKGROUND
+   DARK BG + NARROW RED FOG on html element
    ============================================ */
 
-/* Mesh orbs rendered as body pseudo-elements + fixed divs */
+html {
+    background: #080808 !important;
+}
+
+body {
+    background: transparent !important;
+    animation: none !important;
+}
+
 body::before,
 body::after {
-    content: '';
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-    filter: blur(80px);
-    opacity: 0.55;
+    content: none !important;
+    display: none !important;
 }
 
-/* Large primary orb - top left */
-body::before {
-    width: 600px;
-    height: 600px;
-    top: -150px;
-    left: -150px;
-    background: radial-gradient(circle, rgba(255, 0, 60, 0.6) 0%, rgba(180, 0, 30, 0.3) 50%, transparent 70%);
-    animation: mesh-drift-1 18s ease-in-out infinite;
-}
-
-/* Large secondary orb - bottom right */
-body::after {
-    width: 500px;
-    height: 500px;
-    bottom: -100px;
-    right: -100px;
-    background: radial-gradient(circle, rgba(180, 0, 30, 0.5) 0%, rgba(100, 0, 20, 0.25) 50%, transparent 70%);
-    animation: mesh-drift-2 22s ease-in-out infinite;
-}
-
-/* Mesh orb container - additional orbs */
+/* Smoke overlay — fixed, covers everything, no clipping */
 #mesh-bg {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    pointer-events: none !important;
+    z-index: 99999 !important;
+    overflow: visible !important;
+    background: transparent !important;
 }
 
-.mesh-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    pointer-events: none;
+/* TOP narrow fog band */
+.smoke-top {
+    position: absolute !important;
+    top: 0;
+    left: -5%;
+    width: 110%;
+    height: 130px;
+    background: linear-gradient(
+        to bottom,
+        rgba(170, 0, 0, 0.40) 0%,
+        rgba(120, 0, 0, 0.18) 45%,
+        transparent 100%
+    );
+    filter: blur(20px);
+    animation: fogH 16s ease-in-out infinite alternate;
 }
 
-.mesh-orb-1 {
-    width: 400px;
-    height: 400px;
-    top: 30%;
-    left: 60%;
-    background: radial-gradient(circle, rgba(255, 30, 80, 0.35) 0%, transparent 70%);
-    animation: mesh-drift-3 25s ease-in-out infinite;
+/* BOTTOM narrow fog band */
+.smoke-bottom {
+    position: absolute !important;
+    bottom: 0;
+    left: -5%;
+    width: 110%;
+    height: 120px;
+    background: linear-gradient(
+        to top,
+        rgba(160, 0, 0, 0.38) 0%,
+        rgba(110, 0, 0, 0.15) 48%,
+        transparent 100%
+    );
+    filter: blur(20px);
+    animation: fogH 20s ease-in-out infinite alternate-reverse;
 }
 
-.mesh-orb-2 {
-    width: 300px;
-    height: 300px;
-    top: 60%;
-    left: 20%;
-    background: radial-gradient(circle, rgba(150, 0, 40, 0.4) 0%, transparent 70%);
-    animation: mesh-drift-4 20s ease-in-out infinite reverse;
+/* LEFT narrow fog band */
+.smoke-left {
+    position: absolute !important;
+    top: -5%;
+    left: 0;
+    width: 120px;
+    height: 110%;
+    background: linear-gradient(
+        to right,
+        rgba(150, 0, 0, 0.35) 0%,
+        rgba(100, 0, 0, 0.12) 50%,
+        transparent 100%
+    );
+    filter: blur(18px);
+    animation: fogV 18s ease-in-out infinite alternate;
 }
 
-.mesh-orb-3 {
-    width: 250px;
-    height: 250px;
-    top: 10%;
-    left: 45%;
-    background: radial-gradient(circle, rgba(255, 50, 50, 0.25) 0%, transparent 70%);
-    animation: mesh-drift-1 28s ease-in-out infinite 5s;
+/* RIGHT narrow fog band */
+.smoke-right {
+    position: absolute !important;
+    top: -5%;
+    right: 0;
+    width: 120px;
+    height: 110%;
+    background: linear-gradient(
+        to left,
+        rgba(150, 0, 0, 0.35) 0%,
+        rgba(100, 0, 0, 0.12) 50%,
+        transparent 100%
+    );
+    filter: blur(18px);
+    animation: fogV 24s ease-in-out infinite alternate-reverse;
 }
 
-/* ---- Keyframes ---- */
-@keyframes mesh-drift-1 {
-    0%   { transform: translate(0, 0) scale(1); }
-    33%  { transform: translate(80px, 60px) scale(1.1); }
-    66%  { transform: translate(-40px, 100px) scale(0.95); }
-    100% { transform: translate(0, 0) scale(1); }
+@keyframes fogH {
+    0%   { transform: translateX(0px)   scaleY(1.0); opacity: 0.85; }
+    50%  { transform: translateX(20px)  scaleY(1.1); opacity: 1.0;  }
+    100% { transform: translateX(-15px) scaleY(0.9); opacity: 0.75; }
 }
 
-@keyframes mesh-drift-2 {
-    0%   { transform: translate(0, 0) scale(1); }
-    33%  { transform: translate(-70px, -80px) scale(1.15); }
-    66%  { transform: translate(50px, -40px) scale(0.9); }
-    100% { transform: translate(0, 0) scale(1); }
+@keyframes fogV {
+    0%   { transform: translateY(0px)   scaleX(1.0); opacity: 0.85; }
+    50%  { transform: translateY(15px)  scaleX(1.1); opacity: 1.0;  }
+    100% { transform: translateY(-12px) scaleX(0.9); opacity: 0.75; }
 }
 
-@keyframes mesh-drift-3 {
-    0%   { transform: translate(0, 0) scale(1); }
-    50%  { transform: translate(-120px, 80px) scale(1.2); }
-    100% { transform: translate(0, 0) scale(1); }
-}
-
-@keyframes mesh-drift-4 {
-    0%   { transform: translate(0, 0) scale(1); }
-    40%  { transform: translate(60px, -100px) scale(0.85); }
-    80%  { transform: translate(-80px, 40px) scale(1.1); }
-    100% { transform: translate(0, 0) scale(1); }
-}
-
-/* Override old body background animation from advanced-effects.css */
-body {
-    background: #0a0000 !important;
-    animation: none !important;
+@media (max-width: 768px) {
+    .smoke-top    { height: 80px; }
+    .smoke-bottom { height: 75px; }
+    .smoke-left   { width: 75px; }
+    .smoke-right  { width: 75px; }
 }
